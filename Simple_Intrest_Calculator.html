@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>document</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 30px;
+      }
+      input {
+        margin-bottom: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>Simple Interest Calculator</h2>
+
+    <label for="principal">Principal Amount:</label><br />
+    <input
+      type="number"
+      id="principal"
+      min="0"
+      placeholder="Enter principal"
+    /><br />
+
+    <label for="rate">Rate of Interest (%):</label><br />
+    <input type="number" id="rate" min="0" placeholder="Enter rate" /><br />
+
+    <label for="time">Time (years):</label><br />
+    <input type="number" id="time" min="0" placeholder="Enter time" /><br />
+
+    <button onclick="calculateInterest()">Calculate</button>
+
+    <p id="result"></p>
+
+    <script>
+      function calculateInterest() {
+        const principal = parseFloat(
+          document.getElementById("principal").value
+        );
+        const rate = parseFloat(document.getElementById("rate").value);
+        const time = parseFloat(document.getElementById("time").value);
+
+        if (
+          isNaN(principal) ||
+          principal < 0 ||
+          isNaN(time) ||
+          time < 0 ||
+          isNaN(rate) ||
+          rate < 0
+        ) {
+          document.getElementById("result").innerText =
+            "Please enter valid numbers!";
+          return;
+        }
+
+        const simpleInterest = (principal * rate * time) / 100;
+
+        document.getElementById(
+          "result"
+        ).innerText = `Simple Interest: ${simpleInterest.toFixed(2)}`;
+      }
+    </script>
+  </body>
+</html>
