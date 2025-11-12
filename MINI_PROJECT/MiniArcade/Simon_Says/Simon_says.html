@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Simon Says</title>
+    <link rel="stylesheet" href="Simon_says.css" />
+  </head>
+  <body>
+    <div id="main">
+      <h2 id="heading">Simon Says</h2>
+
+      <div id="tiles">
+        <div class="tile" id="red" data-color="red"></div>
+        <div class="tile" id="blue" data-color="blue"></div>
+        <div class="tile" id="green" data-color="green"></div>
+        <div class="tile" id="yellow" data-color="yellow"></div>
+      </div>
+
+      <button id="start">Start Game</button>
+    </div>
+
+    <!-- Scoreboard -->
+    <div id="scoreboard">
+      <h2 id="resultText"></h2>
+      <p id="scoreText"></p>
+      <button id="playAgain">Play Again</button>
+    </div>
+
+    <!-- back button -->
+    <button
+      id="back-btn"
+      onclick="window.location.href='../Main_page/main.html'"
+    >
+      ← Back to Main Menu
+    </button>
+
+    <script src="Simon_says.js"></script>
+  </body>
+</html>

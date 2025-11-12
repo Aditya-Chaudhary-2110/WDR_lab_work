@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tic Tac Toe</title>
+    <link rel="stylesheet" href="tic_tac_toe.css" />
+  </head>
+  <body>
+    <h1>Tic Tac Toe</h1>
+    <div id="game">
+      <div class="cell" data-index="0"></div>
+      <div class="cell" data-index="1"></div>
+      <div class="cell" data-index="2"></div>
+      <div class="cell" data-index="3"></div>
+      <div class="cell" data-index="4"></div>
+      <div class="cell" data-index="5"></div>
+      <div class="cell" data-index="6"></div>
+      <div class="cell" data-index="7"></div>
+      <div class="cell" data-index="8"></div>
+    </div>
+
+    <div id="scoreboard" class="hidden">
+      <div class="popup">
+        <h2 id="result-text"></h2>
+        <h2 id="heading">Tic Tac Toe</h2>
+        <p id="score-text"></p>
+        <button id="play-again">Play Again</button>
+      </div>
+    </div>
+
+    <h2 id="heading">Tic Tac Toe</h2>
+    <button
+      id="back-btn"
+      onclick="window.location.href='../Main_page/main.html'"
+    >
+      ⬅ Back to Main Menu
+    </button>
+
+    <script src="tic_tac_toe.js"></script>
+  </body>
+</html>
