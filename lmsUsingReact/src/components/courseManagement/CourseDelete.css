@@ -1,0 +1,43 @@
+.delete-table {
+  width: 70%;
+  margin: 30px auto;
+  border-collapse: collapse;
+  font-family: sans-serif;
+  background: #ffffff;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.delete-table thead {
+  background: #ff4d4d;
+  color: white;
+}
+
+.delete-table th,
+.delete-table td {
+  padding: 12px 16px;
+  text-align: left;
+  font-size: 14px;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.delete-table tbody tr:hover {
+  background: #f5f5f5;
+  transition: 0.3s ease;
+}
+
+.delete-btn {
+  padding: 8px 12px;
+  background: #ff4d4d;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background 0.3s ease;
+}
+
+.delete-btn:hover {
+  background: #d93636;
+}
