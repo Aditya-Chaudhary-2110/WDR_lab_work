@@ -1,38 +1,27 @@
 import { useState } from "react";
-import { useForm } from "react-hook-form";
+import { useCourse } from "./context/CourseContext";
 import "./CourseUpdate.css";
 
-function CourseUpdate({ courses, updateCourse }) {
+function CourseUpdate() {
+  const { courses, updateCourse } = useCourse();
   const [selectedId, setSelectedId] = useState("");
-  const course = courses.find((c) => c.id === selectedId);
+  const [form, setForm] = useState({});
 
-  const { register, handleSubmit, reset, setValue } = useForm();
+  const selectedCourse = courses.find((c) => c.id === selectedId);
 
-  const handleSelect = (e) => {
-    const id = e.target.value;
-    setSelectedId(id);
-    const selectedCourse = courses.find((c) => c.id === id);
-    if (selectedCourse) {
-      setValue("id", selectedCourse.id);
-      setValue("name", selectedCourse.name);
-      setValue("description", selectedCourse.description);
-      setValue("duration", selectedCourse.duration);
-      setValue("minEnrollment", selectedCourse.minEnrollment);
-      setValue("maxEnrollment", selectedCourse.maxEnrollment);
-    }
-  };
-
-  const onSubmit = (data) => {
-    updateCourse(data);
-    reset();
-    setSelectedId("");
+  const handleUpdate = () => {
+    updateCourse(form);
+    alert("Course updated");
   };
 
   return (
     <div className="update-container">
       <select
-        className="update-select"
-        onChange={handleSelect}
+        onChange={(e) => {
+          setSelectedId(e.target.value);
+          const course = courses.find((c) => c.id === e.target.value);
+          setForm(course || {});
+        }}
         value={selectedId}
       >
         <option value="">Select Course</option>
@@ -43,44 +32,45 @@ function CourseUpdate({ courses, updateCourse }) {
         ))}
       </select>
 
-      {course && (
-        <form className="update-form" onSubmit={handleSubmit(onSubmit)}>
-          <h3>Update Course</h3>
-
-          <label>ID</label>
-          <input {...register("id")} readOnly />
-
-          <label>Name</label>
-          <input {...register("name")} placeholder="Course Name" />
-
-          <label>Description</label>
-          <input {...register("description")} placeholder="Description" />
-
-          <label>Duration</label>
+      {selectedCourse && (
+        <div className="update-form">
+          <label htmlFor="">Name:</label>
           <input
-            type="number"
-            {...register("duration")}
+            value={form.name}
+            onChange={(e) => setForm({ ...form, name: e.target.value })}
+            placeholder="Name"
+          />
+          <label htmlFor="">description:</label>
+          <input
+            value={form.description}
+            onChange={(e) => setForm({ ...form, description: e.target.value })}
+            placeholder="Description"
+          />
+          <label htmlFor="">duration:</label>
+          <input
+            value={form.duration}
+            onChange={(e) => setForm({ ...form, duration: e.target.value })}
+            placeholder="Duration"
+          />
+          <label htmlFor="">min Enrollment:</label>
+          <input
+            value={form.minEnrollment}
+            onChange={(e) =>
+              setForm({ ...form, minEnrollment: e.target.value })
+            }
+            placeholder="Duration"
+          />
+          <label htmlFor="">max Enrollment:</label>
+          <input
+            value={form.maxEnrollment}
+            onChange={(e) =>
+              setForm({ ...form, maxEnrollment: e.target.value })
+            }
             placeholder="Duration"
           />
 
-          <label>Min Enrollment</label>
-          <input
-            type="number"
-            {...register("minEnrollment")}
-            placeholder="Min Enrollment"
-          />
-
-          <label>Max Enrollment</label>
-          <input
-            type="number"
-            {...register("maxEnrollment")}
-            placeholder="Max Enrollment"
-          />
-
-          <button type="submit" className="update-btn">
-            Update Course
-          </button>
-        </form>
+          <button onClick={handleUpdate}>Update</button>
+        </div>
       )}
     </div>
   );

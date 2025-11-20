@@ -1,27 +1,14 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { useState } from "react";
 
-/* ----------------------------------------------------------
-   COURSE MANAGEMENT (fully commented / disabled)
----------------------------------------------------------- */
+/* ---------------- COURSE MANAGEMENT (Context) ---------------- */
+import CourseNavigationBar from "./components/courseManagement/CourseNavigationBar";
+import CourseDelete from "./components/courseManagement/CourseDelete";
+import CourseDetail from "./components/courseManagement/CourseDetail";
+import CourseList from "./components/courseManagement/CourseList";
+import CourseRegistration from "./components/courseManagement/CourseRegistration";
+import CourseUpdate from "./components/courseManagement/CourseUpdate";
 
-// import CourseNavigationBar from "./components/courseManagement/CourseNavigationBar";
-// import CourseDelete from "./components/courseManagement/CourseDelete";
-// import CourseDetail from "./components/courseManagement/CourseDetail";
-// import CourseList from "./components/courseManagement/CourseList";
-// import CourseRegistration from "./components/courseManagement/CourseRegistration";
-// import CourseUpdate from "./components/courseManagement/CourseUpdate";
-
-// const [courses, setCourses] = useState([]);
-// const addCourse = (course) => setCourses([...courses, course]);
-// const deleteCourse = (id) => setCourses(courses.filter((c) => c.id !== id));
-// const updateCourse = (updated) =>
-//   setCourses(courses.map((c) => (c.id === updated.id ? updated : c)));
-
-/* ----------------------------------------------------------
-   FACULTY MANAGEMENT (active)
----------------------------------------------------------- */
-
+/* ---------------- FACULTY MANAGEMENT (Context) ---------------- */
 import FacultyNavigation from "./components/facultyManagment/FacultyNavigation";
 import FacultyRegistration from "./components/facultyManagment/FacultyRegistration";
 import FacultyList from "./components/facultyManagment/FacultyList";
@@ -29,118 +16,35 @@ import FacultyProfile from "./components/facultyManagment/FacultyProfile";
 import FacultyUpdate from "./components/facultyManagment/FacultyUpdate";
 import FacultyDelete from "./components/facultyManagment/FacuiltyDelete";
 
+import { FacultyProvider } from "./components/facultyManagment/context/FacultyContext";
+import { CourseProvider } from "./components/courseManagement/context/CourseContext";
+
 function App() {
-  const [facultyData, setFacultyData] = useState([]);
-  const [selectedFaculty, setSelectedFaculty] = useState(null);
-
-  // Add new faculty with duplicate ID check
-  const addFaculty = (data) => {
-    if (
-      facultyData.some(
-        (f) => f.id.toString().trim() === data.id.toString().trim()
-      )
-    ) {
-      alert("Faculty ID already exists");
-      return;
-    }
-    setFacultyData([...facultyData, data]);
-  };
-
-  // Update existing faculty
-  const updateFaculty = (updated) => {
-    setFacultyData(
-      facultyData.map((f) =>
-        f.id.toString().trim() === updated.id.toString().trim() ? updated : f
-      )
-    );
-    setSelectedFaculty(updated); // update selected faculty after edit
-  };
-
-  // Delete faculty by ID
-  const deleteFaculty = (id) => {
-    setFacultyData(
-      facultyData.filter((f) => f.id.toString().trim() !== id.toString().trim())
-    );
-    if (
-      selectedFaculty &&
-      selectedFaculty.id.toString().trim() === id.toString().trim()
-    ) {
-      setSelectedFaculty(null);
-    }
-  };
-
-  // Optional: select faculty by ID
-  const selectFacultyById = (id) => {
-    const faculty = facultyData.find(
-      (f) => f.id.toString().trim() === id.toString().trim()
-    );
-    setSelectedFaculty(faculty || null);
-  };
-
   return (
     <BrowserRouter>
-      {/* Faculty Navigation Bar */}
-      <FacultyNavigation />
+      <CourseProvider>
+        <FacultyProvider>
+          {/* Always visible navbars */}
+          <FacultyNavigation />
+          <CourseNavigationBar />
 
-      <Routes>
-        {/* -------------------- FACULTY ROUTES -------------------- */}
-        <Route
-          path="/faculty/register"
-          element={
-            <FacultyRegistration
-              addFaculty={addFaculty}
-              facultyList={facultyData}
-            />
-          }
-        />
+          <Routes>
+            {/* ---------------- FACULTY ROUTES ---------------- */}
+            <Route path="/faculty/register" element={<FacultyRegistration />} />
+            <Route path="/faculty/list" element={<FacultyList />} />
+            <Route path="/faculty/profile" element={<FacultyProfile />} />
+            <Route path="/faculty/update" element={<FacultyUpdate />} />
+            <Route path="/faculty/delete" element={<FacultyDelete />} />
 
-        <Route
-          path="/faculty/list"
-          element={
-            <FacultyList
-              facultyData={facultyData}
-              onSelect={(faculty) => setSelectedFaculty(faculty)}
-            />
-          }
-        />
-
-        <Route
-          path="/faculty/profile"
-          element={
-            <FacultyProfile
-              facultyData={facultyData}
-              onSelect={selectFacultyById}
-              selectedFaculty={selectedFaculty}
-            />
-          }
-        />
-
-        <Route
-          path="/faculty/update"
-          element={
-            <FacultyUpdate
-              facultyData={facultyData}
-              selectedFaculty={selectedFaculty}
-              onUpdate={updateFaculty}
-            />
-          }
-        />
-
-        <Route
-          path="/faculty/delete"
-          element={
-            <FacultyDelete facultyData={facultyData} onDelete={deleteFaculty} />
-          }
-        />
-
-        {/* -------------------- COURSE ROUTES (disabled) -------------------- */}
-
-        {/* <Route path="/register" element={<CourseRegistration addCourse={addCourse} />} /> */}
-        {/* <Route path="/list" element={<CourseList courses={courses} />} /> */}
-        {/* <Route path="/detail" element={<CourseDetail courses={courses} />} /> */}
-        {/* <Route path="/delete" element={<CourseDelete courses={courses} deleteCourse={deleteCourse} />} /> */}
-        {/* <Route path="/update" element={<CourseUpdate courses={courses} updateCourse={updateCourse} />} /> */}
-      </Routes>
+            {/* ---------------- COURSE ROUTES ---------------- */}
+            <Route path="/course/register" element={<CourseRegistration />} />
+            <Route path="/course/list" element={<CourseList />} />
+            <Route path="/course/detail" element={<CourseDetail />} />
+            <Route path="/course/delete" element={<CourseDelete />} />
+            <Route path="/course/update" element={<CourseUpdate />} />
+          </Routes>
+        </FacultyProvider>
+      </CourseProvider>
     </BrowserRouter>
   );
 }

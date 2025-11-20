@@ -1,20 +1,28 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+import { FacultyContext } from "./context/FacultyContext";
 
-function FacultyDelete({ facultyData, onDelete }) {
+function FacultyDelete() {
+  const { facultyData, deleteFaculty } = useContext(FacultyContext);
   const [id, setId] = useState("");
 
   const handleDelete = () => {
     const idToDelete = id.trim();
-    if (!facultyData.some((f) => f.id.toString().trim() === idToDelete)) {
+
+    const exists = facultyData.some(
+      (f) => f.id.toString().trim() === idToDelete
+    );
+
+    if (!exists) {
       alert("Faculty ID not found");
       return;
     }
+
     if (
       window.confirm(
         `Are you sure you want to delete faculty ID ${idToDelete}?`
       )
     ) {
-      onDelete(idToDelete);
+      deleteFaculty(idToDelete);
       setId("");
     }
   };

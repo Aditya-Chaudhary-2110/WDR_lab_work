@@ -1,8 +1,11 @@
 import { useState } from "react";
+import { useCourse } from "./context/CourseContext";
 import "./CourseDetail.css";
 
-function CourseDetail({ courses }) {
+function CourseDetail() {
+  const { courses } = useCourse();
   const [selectedId, setSelectedId] = useState("");
+
   const course = courses.find((c) => c.id === selectedId);
 
   return (

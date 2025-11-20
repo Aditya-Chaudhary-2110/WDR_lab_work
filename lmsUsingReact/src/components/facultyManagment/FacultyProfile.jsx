@@ -1,14 +1,15 @@
 import React, { useState } from "react";
+import { useFaculty } from "./context/FacultyContext";
 import "./FacultyProfile.css";
 
-function FacultyProfile({ facultyData }) {
+function FacultyProfile() {
+  const { facultyData } = useFaculty();
   const [searchId, setSearchId] = useState("");
   const [faculty, setFaculty] = useState(null);
 
   const handleSearch = () => {
-    const idToSearch = searchId.trim();
     const found = facultyData.find(
-      (f) => f.id.toString().trim() === idToSearch
+      (f) => f.id.toString().trim() === searchId.trim()
     );
     setFaculty(found || null);
   };

@@ -1,7 +1,9 @@
 import { useForm } from "react-hook-form";
+import { useCourse } from "./context/CourseContext";
 import "./CourseRegistration.css";
 
-function CourseRegistration({ addCourse }) {
+function CourseRegistration() {
+  const { addCourse } = useCourse();
   const { register, handleSubmit, reset } = useForm();
 
   const onSubmit = (data) => {
@@ -27,24 +29,18 @@ function CourseRegistration({ addCourse }) {
       <input {...register("description")} placeholder="Description" />
 
       <label>Duration (hours):</label>
-      <input
-        type="number"
-        {...register("duration", { valueAsNumber: true })}
-        placeholder="Duration (hours)"
-      />
+      <input type="number" {...register("duration", { valueAsNumber: true })} />
 
       <label>Min Enrollment:</label>
       <input
         type="number"
         {...register("minEnrollment", { valueAsNumber: true })}
-        placeholder="Min Enrollment"
       />
 
       <label>Max Enrollment:</label>
       <input
         type="number"
         {...register("maxEnrollment", { valueAsNumber: true })}
-        placeholder="Max Enrollment"
       />
 
       <button type="submit" className="submit-btn">

@@ -1,8 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { useForm } from "react-hook-form";
 import "./FacultyUpdate.css";
+import { FacultyContext } from "./context/FacultyContext";
 
-function FacultyUpdate({ facultyData, onUpdate }) {
+function FacultyUpdate() {
+  const { facultyData, updateFaculty } = useContext(FacultyContext);
+
   const [searchId, setSearchId] = useState("");
   const [faculty, setFaculty] = useState(null);
 
@@ -10,11 +13,14 @@ function FacultyUpdate({ facultyData, onUpdate }) {
 
   const handleSearch = () => {
     const idToSearch = searchId.trim();
+
     const found = facultyData.find(
       (f) => f.id.toString().trim() === idToSearch
     );
+
     if (found) {
       setFaculty(found);
+
       setValue("id", found.id);
       setValue("name", found.name);
       setValue("age", found.age);
@@ -29,8 +35,9 @@ function FacultyUpdate({ facultyData, onUpdate }) {
   };
 
   const onSubmit = (data) => {
-    onUpdate(data);
+    updateFaculty(data);
     alert("Faculty updated successfully");
+
     reset();
     setFaculty(null);
     setSearchId("");

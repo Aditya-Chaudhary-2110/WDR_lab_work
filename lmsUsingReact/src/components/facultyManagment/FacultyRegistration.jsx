@@ -1,8 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useForm } from "react-hook-form";
 import "./FacultyRegistration.css";
+import { FacultyContext } from "./context/FacultyContext";
 
-function FacultyRegistration({ addFaculty, facultyList }) {
+function FacultyRegistration() {
+  const { facultyData, addFaculty } = useContext(FacultyContext);
+
   const {
     register,
     handleSubmit,
@@ -11,11 +14,9 @@ function FacultyRegistration({ addFaculty, facultyList }) {
   } = useForm();
 
   const onSubmit = (data) => {
-    // Always treat ID as string
     data.id = data.id.toString().trim();
 
-    // Duplicate check
-    if (facultyList.some((f) => f.id.toString().trim() === data.id)) {
+    if (facultyData.some((f) => f.id.toString().trim() === data.id)) {
       alert("Faculty ID already exists");
       return;
     }

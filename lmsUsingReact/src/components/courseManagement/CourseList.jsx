@@ -1,6 +1,9 @@
+import { useCourse } from "./context/CourseContext";
 import "./CourseList.css";
 
-function CourseList({ courses }) {
+function CourseList() {
+  const { courses } = useCourse();
+
   return (
     <table className="course-table">
       <thead>
@@ -9,6 +12,8 @@ function CourseList({ courses }) {
           <th>Name</th>
           <th>Description</th>
           <th>Duration</th>
+          <th>Min Enrollment</th>
+          <th>Max Enrollment</th>
         </tr>
       </thead>
       <tbody>
@@ -18,6 +23,8 @@ function CourseList({ courses }) {
             <td>{c.name}</td>
             <td>{c.description}</td>
             <td>{c.duration}</td>
+            <td>{c.minEnrollment}</td>
+            <td>{c.maxEnrollment}</td>
           </tr>
         ))}
       </tbody>
