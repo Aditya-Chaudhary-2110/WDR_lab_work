@@ -1,4 +1,4 @@
-import pool from "./db";
+import pool from "../db.js";
 
 //to create a function to fetch data from mysql table
 

@@ -1,4 +1,4 @@
-import pool from "./db.js";
+import pool from "../db.js";
 
 // Fetch all faculty
 export async function fetchFacultyList(req, res) {
