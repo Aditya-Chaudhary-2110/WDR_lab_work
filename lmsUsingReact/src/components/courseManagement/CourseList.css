@@ -1,0 +1,32 @@
+.course-table {
+  width: 80%;
+  margin: 30px auto;
+  border-collapse: collapse;
+  font-family: sans-serif;
+  background: #ffffff;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.course-table thead {
+  background: #4a90e2;
+  color: white;
+}
+
+.course-table th,
+.course-table td {
+  padding: 12px 16px;
+  text-align: left;
+  font-size: 14px;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.course-table tbody tr:hover {
+  background: #f5f5f5;
+  transition: 0.3s ease;
+}
+
+.course-table tbody tr:last-child td {
+  border-bottom: none;
+}

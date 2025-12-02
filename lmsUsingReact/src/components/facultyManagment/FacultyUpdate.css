@@ -1,0 +1,84 @@
+/* FacultyUpdate.css */
+
+.faculty-update {
+  max-width: 500px;
+  margin: 30px auto;
+  padding: 15px; /* reduced from 20px */
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  background-color: #f9f9f9;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.faculty-update h2 {
+  text-align: center;
+  margin-bottom: 15px; /* reduced from 20px */
+  color: #333;
+}
+
+.search-field {
+  display: flex;
+  gap: 8px; /* reduced from 10px */
+  margin-bottom: 15px; /* reduced from 20px */
+}
+
+.search-field input {
+  flex: 1;
+  padding: 6px 10px; /* reduced from 8px 12px */
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+.search-field button {
+  padding: 6px 12px; /* reduced from 8px 16px */
+  border: none;
+  background-color: #007bff;
+  color: white;
+  font-size: 14px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.search-field button:hover {
+  background-color: #0056b3;
+}
+
+.update-form {
+  display: flex;
+  flex-direction: column;
+  gap: 8px; /* reduced from 12px */
+}
+
+.update-form label {
+  font-weight: 500;
+  color: #555;
+}
+
+.update-form input,
+.update-form select {
+  padding: 6px 10px; /* reduced from 8px 12px */
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+.update-form input[readonly] {
+  background-color: #e9ecef;
+}
+
+.update-form button {
+  padding: 8px; /* reduced from 10px */
+  border: none;
+  background-color: #28a745;
+  color: white;
+  font-size: 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.update-form button:hover {
+  background-color: #218838;
+}
