@@ -1,0 +1,129 @@
+/* Global */
+body {
+  margin: 0;
+  padding: 0;
+  background: #f4f4f4;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Container */
+.app-container {
+  width: 90%;
+  max-width: 800px;
+  margin: 40px auto;
+  background: #ffffff;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Heading */
+.app-title {
+  text-align: center;
+  font-size: 28px;
+  margin-bottom: 20px;
+  color: #2b2b2b;
+}
+
+/* Inputs */
+.note-input {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 25px;
+}
+
+.note-input input,
+.note-input textarea {
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  outline: none;
+  font-size: 15px;
+  transition: 0.2s;
+}
+
+.note-input input:focus,
+.note-input textarea:focus {
+  border-color: #4b70f5;
+  box-shadow: 0 0 5px rgba(75, 112, 245, 0.3);
+}
+
+.note-input textarea {
+  height: 90px;
+  resize: none;
+}
+
+/* Button */
+.button-primary {
+  padding: 12px;
+  background: #4b70f5;
+  color: white;
+  font-size: 16px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.button-primary:hover {
+  background: #3b5edc;
+}
+
+/* Notes List */
+.notes-list {
+  margin-top: 20px;
+}
+
+.note-card {
+  background: #ffffff;
+  padding: 20px;
+  border-radius: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #e2e2e2;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.note-card h3 {
+  margin: 0 0 10px 0;
+  color: #333;
+}
+
+.note-card p {
+  margin: 0 0 15px 0;
+  color: #555;
+}
+
+/* Buttons on note */
+.note-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.button-edit {
+  padding: 8px 12px;
+  background: #ffb200;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.button-edit:hover {
+  background: #e09a00;
+}
+
+.button-delete {
+  padding: 8px 12px;
+  background: #ff4c4c;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.button-delete:hover {
+  background: #d63838;
+}
