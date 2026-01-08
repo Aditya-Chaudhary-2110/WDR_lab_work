@@ -1,0 +1,109 @@
+Step 1: Requirement Collection for MedicineTracker
+
+---
+
+## 1. Functional Requirements
+
+| ID    | Requirement                   | Description                                                                                        |
+| ----- | ----------------------------- | -------------------------------------------------------------------------------------------------- |
+| FR-01 | User Registration & Login     | Users can register and log in using email/phone and password. JWT will handle authentication.      |
+| FR-02 | Profile Management            | Users can create personal or family member profiles.                                               |
+| FR-03 | Medicine Catalog              | Users can add medicines with name, type, dosage, frequency, stock, expiry date, manufacturer, etc. |
+| FR-04 | Medicine Schedule & Reminder  | Users can set medicine schedules with notifications (push/email/SMS).                              |
+| FR-05 | Medicine Adherence Tracking   | Users can mark medicines as taken or missed.                                                       |
+| FR-06 | Low Stock Alert               | App will notify when stock is below a threshold.                                                   |
+| FR-07 | Stock Prediction              | Predict future stock needs based on historical consumption.                                        |
+| FR-08 | Medicine Interaction Warnings | Warn users if two medicines have known interactions.                                               |
+| FR-09 | Calendar View                 | Visual calendar of medicine schedule and adherence history.                                        |
+| FR-10 | Analytics Dashboard           | Show medicine adherence stats, upcoming refills, usage trends.                                     |
+| FR-11 | Notifications                 | Push notifications, emails, SMS for medicine reminders, low stock, expiry, and refill alerts.      |
+| FR-12 | OCR Support (Optional)        | Users can upload prescription images and extract medicine details automatically.                   |
+| FR-13 | Export Reports                | Generate PDF/CSV reports of medicine history, adherence, and stock.                                |
+| FR-14 | PWA Support                   | App works offline and can be installed on devices.                                                 |
+| FR-15 | Order/Refill Integration      | Users can reorder medicines from integrated pharmacy APIs.                                         |
+
+---
+
+## 2. Non-Functional Requirements
+
+| Category        | Requirement                                                          |
+| --------------- | -------------------------------------------------------------------- |
+| Performance     | App must load main dashboard within 2s.                              |
+| Scalability     | Must support multiple users with family profiles.                    |
+| Security        | Password hashing, JWT auth, HTTPS, data validation.                  |
+| Reliability     | Notifications and stock alerts must trigger accurately.              |
+| Maintainability | Modular code (frontend + backend), clean APIs, proper documentation. |
+| Compatibility   | Web browsers (Chrome, Firefox, Edge, Safari) + mobile PWA support.   |
+| Backup          | Daily database backup for medicine data.                             |
+
+---
+
+## 3. User Roles
+
+| Role             | Permissions                                                                                    | Notes                            |
+| ---------------- | ---------------------------------------------------------------------------------------------- | -------------------------------- |
+| User             | Register/login, add medicines, set reminders, track adherence, view analytics, manage profiles | Can have multiple family members |
+| Admin (optional) | Manage all users, view system-wide statistics, monitor app health                              | Only for internal use if needed  |
+
+---
+
+## 4. User Stories
+
+1. As a user, I want to register/login securely, so that my data is protected.
+2. As a user, I want to create multiple family member profiles, so I can track medicine for everyone in my family.
+3. As a user, I want to add medicines with details (dosage, frequency, stock), so I can manage my medicine inventory.
+4. As a user, I want to set reminders for medicines, so I never miss a dose.
+5. As a user, I want to mark medicines as taken or missed, so I can track adherence.
+6. As a user, I want to get notified for low stock, so I can refill on time.
+7. As a user, I want analytics on my medicine usage, so I can track trends and adherence.
+8. As a user, I want to upload prescriptions and extract medicine info automatically, so I save time.
+9. As a user, I want to export my medicine history as a PDF, so I can share it with my doctor.
+
+---
+
+## 5. High-Level Features
+
+* Authentication & Authorization: JWT login, role-based access
+* Medicine Management: Add, edit, delete, stock, expiry
+* Reminder System: Push/email/SMS notifications
+* Adherence Tracking: Taken/missed tracking
+* Analytics: Dashboards and calendar views
+* Stock Alerts & Prediction: Threshold alerts + predictive restock
+* OCR (Optional): Prescription scanning
+* Reports: PDF/CSV export
+* PWA Features: Offline support, installable
+
+---
+
+## 6. Acceptance Criteria
+
+1. Users must be able to register/login and create family profiles.
+2. Medicine can be added with all required fields and reminders.
+3. Notifications are sent on schedule reliably.
+4. Adherence tracking reflects accurate history.
+5. Analytics dashboard updates dynamically with usage stats.
+6. Stock alerts trigger when below threshold.
+7. Prescription OCR (if implemented) accurately extracts medicine info.
+8. PDF/CSV exports generate correct summaries.
+9. App works offline as a PWA.
+
+---
+
+## 7. Additional Notes / Considerations
+
+* Support for multiple time zones for reminders.
+* Modular architecture: frontend, backend, DB separated.
+* Keep the design ready for mobile-first PWA experience.
+* APIs must follow REST conventions + Swagger documentation.
+* Cron jobs for reminder notifications, stock alerts, and predictive analytics.
+
+---
+
+## Checklist before moving to Step 2: Feasibility Study
+
+* [ ] Functional requirements defined
+* [ ] Non-functional requirements defined
+* [ ] User roles and permissions defined
+* [ ] User stories listed
+* [ ] High-level features documented
+* [ ] Acceptance criteria listed

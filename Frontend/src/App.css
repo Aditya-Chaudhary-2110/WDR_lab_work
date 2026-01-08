@@ -1,0 +1,357 @@
+.login-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background: #f7f7f7;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.login-form input {
+  padding: 10px;
+  width: 250px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.login-form button {
+  padding: 10px;
+  width: 100%;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.login-form button:hover {
+  background-color: #45a049;
+}
+
+/* header css  */
+
+.app-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #4caf50;
+  color: white;
+}
+
+.app-header .logo h1 {
+  margin: 0;
+  font-size: 1.5rem;
+}
+
+.app-header nav ul {
+  display: flex;
+  list-style: none;
+  gap: 15px;
+  margin: 0;
+  padding: 0;
+}
+
+.app-header nav ul li a,
+.logout-btn {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+.logout-btn {
+  background-color: #f44336;
+  border: none;
+  cursor: pointer;
+}
+
+.logout-btn:hover,
+.app-header nav ul li a:hover {
+  opacity: 0.8;
+}
+
+/* medicine list  */
+
+.medicine-list-container {
+  margin: 20px;
+}
+
+.medicine-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.medicine-header button {
+  padding: 5px 10px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.medicine-header button:hover {
+  opacity: 0.8;
+}
+
+.medicine-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.medicine-table th,
+.medicine-table td {
+  border: 1px solid #ccc;
+  padding: 8px;
+  text-align: left;
+}
+
+.medicine-table th {
+  background-color: #f2f2f2;
+}
+
+.low-stock {
+  color: red;
+  font-weight: bold;
+}
+
+.medicine-table button {
+  margin-right: 5px;
+  padding: 3px 8px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.medicine-table button:first-of-type {
+  background-color: #2196f3;
+  color: white;
+}
+
+.medicine-table button:last-of-type {
+  background-color: #f44336;
+  color: white;
+}
+
+/* medicine form  */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  width: 350px;
+}
+
+.medicine-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.medicine-form input,
+.medicine-form textarea {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.form-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.form-buttons button {
+  padding: 8px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.form-buttons button:hover {
+  opacity: 0.9;
+}
+
+.cancel-btn {
+  background-color: #f44336;
+  color: white;
+}
+
+.medicine-form button[type="submit"] {
+  background-color: #4caf50;
+  color: white;
+}
+
+.error {
+  color: red;
+  font-size: 0.8rem;
+}
+
+/* schedule card  */
+
+.schedule-card {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 10px;
+  margin-bottom: 10px;
+  background-color: #f9f9f9;
+}
+
+.schedule-card h4 {
+  margin: 0 0 5px 0;
+}
+
+.schedule-buttons {
+  display: flex;
+  gap: 10px;
+  margin-top: 5px;
+}
+
+.schedule-buttons button {
+  padding: 5px 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  color: white;
+}
+
+.schedule-buttons button:nth-child(1) {
+  background-color: #4caf50; /* Taken */
+}
+
+.schedule-buttons button:nth-child(2) {
+  background-color: #ff9800; /* Skipped */
+}
+
+.schedule-buttons button:nth-child(3) {
+  background-color: #f44336; /* Missed */
+}
+
+/* dashboard  */
+.dashboard-container {
+  padding: 20px;
+}
+
+.low-stock-panel {
+  background-color: #ffe5e5;
+  padding: 10px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.low-stock-panel h3 {
+  margin-top: 0;
+}
+
+.schedule-panel {
+  margin-top: 30px;
+}
+
+/* schedule page  */
+
+.schedule-page {
+  padding: 20px;
+}
+
+.schedule-form {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.schedule-form select,
+.schedule-form input {
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.schedule-form button {
+  padding: 5px 10px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.schedule-form button:hover {
+  opacity: 0.9;
+}
+
+.schedule-list li {
+  margin-bottom: 8px;
+}
+
+.schedule-list button {
+  margin-left: 10px;
+  padding: 3px 8px;
+  border: none;
+  border-radius: 5px;
+  background-color: #f44336;
+  color: white;
+  cursor: pointer;
+}
+
+/* schedule log  */
+.log-page {
+  padding: 20px;
+}
+
+.filter-section {
+  margin-bottom: 15px;
+}
+
+.filter-section select {
+  margin-left: 10px;
+  padding: 5px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+.log-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.log-table th,
+.log-table td {
+  border: 1px solid #ccc;
+  padding: 8px;
+  text-align: left;
+}
+
+.log-table th {
+  background-color: #f2f2f2;
+}
+
+/* login page  */
+.login-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}

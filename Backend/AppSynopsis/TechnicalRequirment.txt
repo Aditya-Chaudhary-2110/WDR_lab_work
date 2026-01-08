@@ -1,0 +1,96 @@
+Step 2: Feasibility Study for MedicineTracker
+
+---
+
+## 1. Technical Feasibility
+
+| Component        | Feasibility Analysis                                                                                 |
+| ---------------- | ---------------------------------------------------------------------------------------------------- |
+| Frontend         | React is mature, supports PWA features, offline caching, responsive UI. ✅                            |
+| Backend          | Node.js + Express is scalable, supports REST APIs, JWT, cron jobs, and integrates with MySQL. ✅      |
+| Database         | MySQL supports relational data (users, medicines, schedules), transactions, and analytics queries. ✅ |
+| Authentication   | JWT for secure stateless authentication is well-supported. ✅                                         |
+| Notifications    | Push (Firebase), Email (NodeMailer/SMTP), SMS (Twilio) are all implementable. ✅                      |
+| OCR              | Tesseract.js (frontend) or Python OCR via API integration is feasible. Optional but doable. ✅        |
+| Stock Prediction | Basic predictive analytics using historical data + linear regression. Can scale later. ✅             |
+| PWA Support      | React + Workbox enables offline support, installable app, caching strategies. ✅                      |
+
+---
+
+## 2. Operational Feasibility
+
+| Factor          | Feasibility                                                               |
+| --------------- | ------------------------------------------------------------------------- |
+| User base       | Primarily individuals and families; system scales well horizontally. ✅    |
+| Maintenance     | Modular architecture with separate frontend/backend makes updates easy. ✅ |
+| Admin oversight | Optional admin role manageable; minimal intervention needed. ✅            |
+| Notifications   | Push/email/SMS setup is reliable; cron jobs handle scheduling. ✅          |
+
+---
+
+## 3. Economic Feasibility
+
+| Factor               | Analysis                                                                                          |
+| -------------------- | ------------------------------------------------------------------------------------------------- |
+| Development Cost     | Low to moderate using free/open-source stack (React, Node.js, MySQL). ✅                           |
+| Hosting              | Can use VPS (Ubuntu + NGINX + PM2 + MySQL) or cloud (AWS/GCP/Heroku). Moderate cost. ✅            |
+| Third-party services | Notifications (Firebase free tier), Twilio for SMS (paid), OCR API (optional, some free tiers). ✅ |
+| ROI                  | Useful for users managing medicines, high adoption potential, low maintenance costs. ✅            |
+
+---
+
+## 4. Schedule Feasibility
+
+* 3–4 months development for 1–2 developers:
+
+  * Requirement & Design: 2 weeks
+  * Frontend + Backend Core: 6–8 weeks
+  * Notifications & Analytics: 2 weeks
+  * OCR + Reports: 2 weeks
+  * Testing + Deployment: 2 weeks
+
+---
+
+## 5. Risk Analysis
+
+| Risk                    | Mitigation                                                     |
+| ----------------------- | -------------------------------------------------------------- |
+| Push/email/SMS failures | Use reliable providers and test cron jobs thoroughly.          |
+| OCR inaccuracies        | Optional feature; fallback to manual input.                    |
+| Stock prediction errors | Use simple linear regression first; improve with ML later.     |
+| Data security           | Enforce HTTPS, JWT, input validation, and database encryption. |
+
+---
+
+## 6. Technology Stack Recommendation
+
+| Layer         | Technology                                                        |
+| ------------- | ----------------------------------------------------------------- |
+| Frontend      | React, TailwindCSS/Material UI, PWA support                       |
+| Backend       | Node.js + Express, REST API, JWT auth                             |
+| Database      | MySQL (or MariaDB)                                                |
+| Notifications | Firebase Cloud Messaging (Push), NodeMailer (Email), Twilio (SMS) |
+| OCR           | Tesseract.js (frontend) / Python API                              |
+| Deployment    | Linux VPS / NGINX / PM2, environment variables, SSL               |
+
+---
+
+## 7. Feasibility Conclusion
+
+* Technical: ✅ Fully feasible with chosen stack
+* Operational: ✅ Fits user needs and workflow
+* Economic: ✅ Low cost, high benefit
+* Schedule: ✅ Reasonable 3–4 month timeline
+
+Decision: Proceed to Step 3: Literature Survey.
+
+---
+
+## Checklist before moving to Step 3
+
+* [ ] Technical feasibility reviewed
+* [ ] Operational feasibility reviewed
+* [ ] Economic feasibility reviewed
+* [ ] Schedule feasibility reviewed
+* [ ] Risks identified and mitigations considered
+* [ ] Technology stack finalized

@@ -1,0 +1,96 @@
+Step 3: Literature Survey for MedicineTracker
+
+---
+
+## 1. Medicine Data & APIs
+
+| API / Resource            | Features                                     | Notes / Limitations                        |
+| ------------------------- | -------------------------------------------- | ------------------------------------------ |
+| RxNorm API (NIH)          | Drug names, forms, ingredients, interactions | Free, US-focused, REST API, JSON responses |
+| OpenFDA                   | Drug labels, adverse events, recalls         | Free, requires API key, REST API           |
+| MedlinePlus Connect       | Patient-friendly drug info                   | Free, US-based, limited endpoints          |
+| DrugBank API (Commercial) | Drug details, interactions, FDA info         | Paid for full API, very detailed           |
+| Pillbox (NLM)             | Pill images, drug data                       | Limited support, some endpoints deprecated |
+
+Recommendation: Start with RxNorm for drug info and OpenFDA for labels and interactions.
+
+---
+
+## 2. Reminder & Notification Systems
+
+| Service                        | Type      | Features                                  | Notes                                   |
+| ------------------------------ | --------- | ----------------------------------------- | --------------------------------------- |
+| Firebase Cloud Messaging (FCM) | Push      | Push notifications for web + mobile       | Free, works with PWA                    |
+| NodeMailer                     | Email     | Email notifications for reminders, alerts | Free, requires SMTP/email account       |
+| Twilio                         | SMS       | SMS alerts for reminders & stock          | Paid, supports global numbers           |
+| Node Cron                      | Scheduler | Schedule reminders, alerts                | Free, integrates with Node.js backend   |
+| Agenda.js                      | Scheduler | Job scheduling with MongoDB (optional)    | Alternative to cron for persistent jobs |
+
+Recommendation: Node Cron for scheduling, FCM for push, NodeMailer for email, Twilio optional for SMS.
+
+---
+
+## 3. OCR (Prescription Scanning)
+
+| Tool / Library            | Type       | Features                                          | Notes                                                      |
+| ------------------------- | ---------- | ------------------------------------------------- | ---------------------------------------------------------- |
+| Tesseract.js              | JavaScript | Browser + Node.js OCR, free                       | Works well for printed text; handwritten may be inaccurate |
+| Google Cloud Vision API   | Cloud OCR  | High-accuracy text detection, handwriting support | Paid beyond free tier, easy integration                    |
+| AWS Textract              | Cloud OCR  | Extract structured data from images               | Paid, scalable                                             |
+| Microsoft Computer Vision | Cloud OCR  | Text extraction from images                       | Paid beyond free tier, handwriting supported               |
+
+Recommendation: Start with Tesseract.js for initial implementation; cloud OCR can be added later.
+
+---
+
+## 4. Stock Prediction & Analytics
+
+| Approach                                   | Description                                            | Tools / Libraries                                    |
+| ------------------------------------------ | ------------------------------------------------------ | ---------------------------------------------------- |
+| Historical Consumption + Linear Regression | Predict next month stock based on past usage           | Node.js: ml-regression / Python (if ML service used) |
+| Moving Average                             | Simple average consumption prediction                  | Built-in JS/Node code                                |
+| Advanced ML                                | Use TensorFlow.js or Python backend for ML predictions | Optional, for future enhancement                     |
+
+Recommendation: Start with simple linear regression / moving average; upgrade to ML later.
+
+---
+
+## 5. PWA / Offline Support
+
+| Feature                   | Tools / Libraries      | Notes                                               |
+| ------------------------- | ---------------------- | --------------------------------------------------- |
+| Service Workers           | Workbox                | Handles caching, offline support, background sync   |
+| Local Storage / IndexedDB | Browser storage        | Store offline medicine schedules and adherence logs |
+| React PWA                 | CRA or Vite PWA plugin | Easy integration for installable app                |
+
+---
+
+## 6. Export / Reports
+
+| Feature            | Library / Tool        | Notes                                     |
+| ------------------ | --------------------- | ----------------------------------------- |
+| PDF generation     | jsPDF or pdf-lib      | Generate PDF reports client-side          |
+| CSV export         | papaparse or json2csv | Generate CSV for medicine history / stock |
+| Charts / Analytics | recharts or chart.js  | Display adherence and stock trends        |
+
+---
+
+## 7. Key Findings
+
+1. Medicine info & interaction: RxNorm + OpenFDA API sufficient for MVP.
+2. Notifications: Node Cron + FCM + NodeMailer covers most use cases. SMS optional.
+3. OCR: Tesseract.js feasible; cloud services optional for higher accuracy.
+4. Stock prediction: Simple linear regression or moving average enough for initial version.
+5. PWA support: Workbox + React PWA plugin recommended.
+6. Reports & Analytics: jsPDF / Recharts are mature, easy to integrate.
+
+---
+
+## Checklist before moving to Step 4: System Architecture
+
+* [ ] APIs for medicine data selected
+* [ ] Notification system confirmed
+* [ ] OCR approach chosen
+* [ ] Stock prediction method defined
+* [ ] PWA offline support strategy defined
+* [ ] Export/report libraries selected
